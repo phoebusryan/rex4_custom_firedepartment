@@ -11,10 +11,10 @@
 				$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
 			);	
 			
-			$list->setColumnLabel('report_short', 'Kurzbericht'); //todo: Translate
+			$list->setColumnLabel('report_short', $addon_i18n->msg('rex_firedepartment_ctype_operations_column_report_short'));
 			$list->setColumnParams('report_short', ['func' => 'edit', 'id' => '###id###']);
 			
-			$list->setColumnLabel('start_date', 'Alarmierung'); //todo: Translate
+			$list->setColumnLabel('start_date', $addon_i18n->msg('rex_firedepartment_ctype_operations_column_start_date'));
 			$list->setColumnParams('start_date', ['func' => 'edit', 'id' => '###id###']);
 			
 			$list->removeColumn('id');
