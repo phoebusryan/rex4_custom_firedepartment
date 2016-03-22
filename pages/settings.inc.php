@@ -15,8 +15,8 @@
 					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 				);
 				
-				$list->setColumnLabel('name', 'Art des Alarms'); //todo: translate
-				$list->setColumnParams('name', ['func' => 'editAlert', 'id' => '###id###']);
+				$list->setColumnLabel('name', $addon_i18n->msg('rex_firedepartment_ctype_settings_alerts_column_name'));
+				$list->setColumnParams('name', array('func' => 'editAlert', 'id' => '###id###'));
 				
 				$list->removeColumn('id');
 				
@@ -34,7 +34,7 @@
 					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 				);
 				
-				$list->setColumnLabel('name', 'Alarmierte Einheit'); //todo: translate
+				$list->setColumnLabel('name', $addon_i18n->msg('rex_firedepartment_ctype_settings_units_column_name'));
 				$list->setColumnParams('name', ['func' => 'editUnit', 'id' => '###id###']);
 				
 				$list->removeColumn('id');
@@ -53,7 +53,7 @@
 					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 				);
 				
-				$list->setColumnLabel('name', 'Fahrzeuge am Einsatzort'); //todo: translate
+				$list->setColumnLabel('name', $addon_i18n->msg('rex_firedepartment_ctype_settings_vehicles_column_name'));
 				$list->setColumnParams('name', ['func' => 'editVehicle', 'id' => '###id###']);
 				
 				$list->removeColumn('id');
@@ -69,10 +69,10 @@
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_alerts_action_edit');
 			}
 			
-			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_alert', $addon_i18n->msg('rex_firedepartment_ctype_settings_alerts_action_add'), "id=".$id);
+			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_alert', $formCaption, "id=".$id);
 			
-			$field = &$form->addTextField('type');
-			$field->setLabel('Typ'); //todo: translate
+			$field = &$form->addTextField('name');
+			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_settings_alerts_formfield_name_label'));
 			
 			if($func == 'editAlert') {
 				$form->addParam('id', $id);
@@ -91,7 +91,7 @@
 			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_unit', $formCaption, "id=".$id);
 			
 			$field = &$form->addTextField('name');
-			$field->setLabel('Name'); //todo: translate
+			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_settings_units_formfield_name_label'));
 			
 			if($func == 'editUnit') {
 				$form->addParam('id', $id);
@@ -110,7 +110,7 @@
 			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_vehicle', $formCaption, "id=".$id);
 			
 			$field = &$form->addTextField('name');
-			$field->setLabel('Name'); //todo: translate
+			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_settings_vehicles_formfield_name_label'));
 			
 			if($func == 'editVehicle') {
 				$form->addParam('id', $id);
