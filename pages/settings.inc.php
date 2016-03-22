@@ -101,9 +101,9 @@
 		break;
 		case 'addVehicle':
 		case 'editVehicle':
-			if ($func == 'addAlert') {
+			if ($func == 'addVehicle') {
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_vehicles_action_add');
-			} else if ($func == 'editAlert') {
+			} else if ($func == 'editVehicle') {
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_vehicles_action_edit');
 			}
 			
