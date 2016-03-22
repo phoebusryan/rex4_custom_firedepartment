@@ -1,7 +1,4 @@
 <?php
-	//todo:
-	//- diverse übersetzungen
-	
 	$id = rex_request('id', 'int');
 	
 	switch ($func) {
