@@ -66,6 +66,17 @@
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_alerts_action_edit');
 			}
 			
+			rex_register_extension('REX_FORM_CONTROL_FIELDS', function($params) {
+				global $I18N, $func;
+				
+				if ($func == 'editAlert') {
+					$params['subject']['apply'] = $I18N->msg('form_apply');
+					$params['subject']['delete'] = $I18N->msg('form_delete');
+				}
+				
+				return $params['subject'];
+			});
+			
 			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_alert', $formCaption, "id=".$id);
 			
 			$field = &$form->addTextField('name');
@@ -79,12 +90,23 @@
 		break;
 		case 'addUnit':
 		case 'editUnit':
-			if ($func == 'addAlert') {
+			if ($func == 'addUnit') {
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_units_action_add');
-			} else if ($func == 'editAlert') {
+			} else if ($func == 'editUnit') {
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_units_action_edit');
 			}
-		
+			
+			rex_register_extension('REX_FORM_CONTROL_FIELDS', function($params) {
+				global $I18N, $func;
+				
+				if ($func == 'editUnit') {
+					$params['subject']['apply'] = $I18N->msg('form_apply');
+					$params['subject']['delete'] = $I18N->msg('form_delete');
+				}
+				
+				return $params['subject'];
+			});
+			
 			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_unit', $formCaption, "id=".$id);
 			
 			$field = &$form->addTextField('name');
@@ -103,6 +125,17 @@
 			} else if ($func == 'editVehicle') {
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_settings_vehicles_action_edit');
 			}
+			
+			rex_register_extension('REX_FORM_CONTROL_FIELDS', function($params) {
+				global $I18N, $func;
+				
+				if ($func == 'editVehicle') {
+					$params['subject']['apply'] = $I18N->msg('form_apply');
+					$params['subject']['delete'] = $I18N->msg('form_delete');
+				}
+				
+				return $params['subject'];
+			});
 			
 			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_config_vehicle', $formCaption, "id=".$id);
 			
