@@ -5,19 +5,19 @@ rex_firedepartment_ctype_settings_alerts_action_add = Alarm hinzufügen
 rex_firedepartment_ctype_settings_alerts_action_edit = Alarm bearbeiten
 
 rex_firedepartment_ctype_settings_alerts_column_name = Art des Alarms
-
 rex_firedepartment_ctype_settings_alerts_formfield_name_label = Name
 
 rex_firedepartment_ctype_settings_units_action_add = Einheit hinzufügen
 rex_firedepartment_ctype_settings_units_action_edit = Einheit bearbeiten
 
 rex_firedepartment_ctype_settings_units_column_name = Alarmierte Einheit
-
+rex_firedepartment_ctype_settings_units_formfield_name_label = Name
 
 rex_firedepartment_ctype_settings_vehicles_action_add = Fahrzeug hinzufügen
 rex_firedepartment_ctype_settings_vehicles_action_edit = Fahrzeug bearbeiten
 
 rex_firedepartment_ctype_settings_vehicles_column_name = Fahrzeuge am Einsatzort
+rex_firedepartment_ctype_settings_vehicles_formfield_name_label = Name
 
 
 rex_firedepartment_ctype_operations = Einsätze
