@@ -5,17 +5,17 @@
 		case '':
 			$list = rex_list::factory('SELECT `id`, `report_short`, `start_date` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operations` ORDER BY `end_date` DESC');
 			
-			$imgHeader = '<a href="'. $list->getUrl(['func' => 'add']) .'"><img src="media/metainfo_plus.gif" alt=""/></a>';
+			$imgHeader = '<a href="'. $list->getUrl(array('func' => 'add')) .'"><img src="media/metainfo_plus.gif" alt=""/></a>';
 			
 			$list->addColumn(
-				$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
+				$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 			);	
 			
 			$list->setColumnLabel('report_short', $addon_i18n->msg('rex_firedepartment_ctype_operations_column_report_short'));
-			$list->setColumnParams('report_short', ['func' => 'edit', 'id' => '###id###']);
+			$list->setColumnParams('report_short', array('func' => 'edit', 'id' => '###id###'));
 			
 			$list->setColumnLabel('start_date', $addon_i18n->msg('rex_firedepartment_ctype_operations_column_start_date'));
-			$list->setColumnParams('start_date', ['func' => 'edit', 'id' => '###id###']);
+			$list->setColumnParams('start_date', array('func' => 'edit', 'id' => '###id###'));
 			
 			$list->removeColumn('id');
 			
@@ -63,19 +63,19 @@
 				$select->addSqlOptions($query);
 			//End - field for vehicle_id
 			
-			$field = &$form->addTextareaField('report_short', null, ['rows' => 2]);
+			$field = &$form->addTextareaField('report_short', null, array('rows' => 2));
 			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_operations_formfield_report_short_label'));
 			
-			$field = &$form->addTextareaField('report_long', null, ['rows' => 6]);
+			$field = &$form->addTextareaField('report_long', null, array('rows' => 6));
 			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_operations_formfield_report_long_label'));
 			
 			$field = &$form->addTextField('place');
 			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_operations_formfield_place_label'));
 			
-			$field = &$form->addTextField('start_date', null, ['class' => 'date']);
+			$field = &$form->addTextField('start_date', null, array('class' => 'date'));
 			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_operations_formfield_start_date_label'));
 			
-			$field = &$form->addTextField('end_date', null, ['class' => 'date']);
+			$field = &$form->addTextField('end_date', null, array('class' => 'date'));
 			$field->setLabel($addon_i18n->msg('rex_firedepartment_ctype_operations_formfield_end_date_label'));
 			
 			$field = &$form->addMedialistField('images');

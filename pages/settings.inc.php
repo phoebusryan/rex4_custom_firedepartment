@@ -1,6 +1,5 @@
 <?php
 	//todo:
-	//- no rows message hinzufügen
 	//- diverse übersetzungen
 	
 	$id = rex_request('id', 'int');
@@ -10,10 +9,10 @@
 			//Start - list all alerts
 				$list = rex_list::factory('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_alert` ORDER BY `name` ASC');
 				
-				$imgHeader = '<a href="'. $list->getUrl(['func' => 'addAlert']) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
+				$imgHeader = '<a href="'. $list->getUrl(array('func' => 'addAlert')) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
 				
 				$list->addColumn(
-					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
+					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 				);
 				
 				$list->setColumnLabel('name', 'Art des Alarms'); //todo: translate
@@ -29,10 +28,10 @@
 			//Start - list all units
 				$list = rex_list::factory('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_unit` ORDER BY `name` ASC');
 				
-				$imgHeader = '<a href="'. $list->getUrl(['func' => 'addUnit']) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
+				$imgHeader = '<a href="'. $list->getUrl(array('func' => 'addUnit')) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
 				
 				$list->addColumn(
-					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
+					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 				);
 				
 				$list->setColumnLabel('name', 'Alarmierte Einheit'); //todo: translate
@@ -48,10 +47,10 @@
 			//Start - list all vehicles
 				$list = rex_list::factory('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_vehicle` ORDER BY `name` ASC');
 				
-				$imgHeader = '<a href="'. $list->getUrl(['func' => 'addVehicle']) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
+				$imgHeader = '<a href="'. $list->getUrl(array('func' => 'addVehicle')) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
 				
 				$list->addColumn(
-					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
+					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
 				);
 				
 				$list->setColumnLabel('name', 'Fahrzeuge am Einsatzort'); //todo: translate
