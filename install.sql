@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%firedepartment_config_vehicle` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%firedepartment_operations` (
+CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%firedepartment_operation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `config_alert_id` int(11) NOT NULL,
   `config_unit_ids`  varchar(100) NOT NULL,

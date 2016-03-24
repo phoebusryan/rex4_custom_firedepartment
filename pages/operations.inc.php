@@ -3,7 +3,7 @@
 	
 	switch ($func) {
 		case '':
-			$list = rex_list::factory('SELECT `id`, `report_short`, `start_date` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operations` ORDER BY `end_date` DESC');
+			$list = rex_list::factory('SELECT `id`, `report_short`, `start_date` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` ORDER BY `end_date` DESC');
 			
 			$imgHeader = '<a href="'. $list->getUrl(array('func' => 'add')) .'"><img src="media/metainfo_plus.gif" alt=""/></a>';
 			
@@ -29,7 +29,7 @@
 				$formCaption = $addon_i18n->msg('rex_firedepartment_ctype_operations_action_edit');
 			}
 			
-			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_operations', $formCaption, "id=".$id);
+			$form = rex_form::factory($REX['TABLE_PREFIX'].'firedepartment_operation', $formCaption, "id=".$id);
 			
 			//Start - field for alert_id
 				$field = &$form->addSelectField('config_alert_id');
