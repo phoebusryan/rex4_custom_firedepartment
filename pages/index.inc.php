@@ -7,10 +7,10 @@
 	
 	include_once $REX["INCLUDE_PATH"]."/layout/top.php";
 	
-	$subpages = array(
-		array("settings", $addon_i18n->msg('rex_firedepartment_ctype_settings')),
-		array("operations", $addon_i18n->msg('rex_firedepartment_ctype_operations')),
-	);
+	$subpages = [
+		["settings", $addon_i18n->msg('rex_firedepartment_ctype_settings')],
+		["operations", $addon_i18n->msg('rex_firedepartment_ctype_operations')],
+	];
 	
 	rex_title($addon_i18n->msg('rex_firedepartment_title'), $subpages);
 	

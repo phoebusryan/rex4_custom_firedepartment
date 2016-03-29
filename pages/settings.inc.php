@@ -6,14 +6,14 @@
 			//Start - list all alerts
 				$list = rex_list::factory('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_alert` ORDER BY `name` ASC');
 				
-				$imgHeader = '<a href="'. $list->getUrl(array('func' => 'addAlert')) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
+				$imgHeader = '<a href="'. $list->getUrl(['func' => 'addAlert']) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
 				
 				$list->addColumn(
-					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
+					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
 				);
 				
 				$list->setColumnLabel('name', $addon_i18n->msg('rex_firedepartment_ctype_settings_alerts_column_name'));
-				$list->setColumnParams('name', array('func' => 'editAlert', 'id' => '###id###'));
+				$list->setColumnParams('name', ['func' => 'editAlert', 'id' => '###id###']);
 				
 				$list->removeColumn('id');
 				
@@ -25,10 +25,10 @@
 			//Start - list all units
 				$list = rex_list::factory('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_unit` ORDER BY `name` ASC');
 				
-				$imgHeader = '<a href="'. $list->getUrl(array('func' => 'addUnit')) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
+				$imgHeader = '<a href="'. $list->getUrl(['func' => 'addUnit']) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
 				
 				$list->addColumn(
-					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
+					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
 				);
 				
 				$list->setColumnLabel('name', $addon_i18n->msg('rex_firedepartment_ctype_settings_units_column_name'));
@@ -44,10 +44,10 @@
 			//Start - list all vehicles
 				$list = rex_list::factory('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_vehicle` ORDER BY `name` ASC');
 				
-				$imgHeader = '<a href="'. $list->getUrl(array('func' => 'addVehicle')) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
+				$imgHeader = '<a href="'. $list->getUrl(['func' => 'addVehicle']) .'"><img src="media/metainfo_plus.gif" alt="" /></a>';
 				
 				$list->addColumn(
-					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, array( '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' )
+					$imgHeader, '<img src="media/metainfo.gif" alt="" />', 0, [ '<th class="rex-icon">###VALUE###</th>', '<td class="rex-icon">###VALUE###</td>' ]
 				);
 				
 				$list->setColumnLabel('name', $addon_i18n->msg('rex_firedepartment_ctype_settings_vehicles_column_name'));
