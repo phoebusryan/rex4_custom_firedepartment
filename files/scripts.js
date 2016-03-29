@@ -8,6 +8,6 @@ jQuery(document).ready(function() {
 	//End - datepickeroptions
 	jQuery.datetimepicker.setLocale('de');
 	
-	jQuery('.date:eq(1)').datetimepicker(options);
-	jQuery('.date:eq(2)').datetimepicker(options);
+	jQuery('input.date:eq(0)').datetimepicker(options);
+	jQuery('input.date:eq(1)').datetimepicker(options);
 });
