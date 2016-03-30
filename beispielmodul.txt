@@ -1,7 +1,7 @@
 <?php
   require($REX['INCLUDE_PATH'].'/addons/rex_firedepartment/classes/class.rex_firedepartment.inc.php');
   
-  $operations = rex_firedepartment::getOperations();
+  $operations = rex_firedepartment::getOperations('2016');
   
   if (!empty($operations)) {
     ?>
@@ -16,17 +16,7 @@
       </thead>
       <tbody>
         <?php
-          $year = '';
-          
           foreach ($operations as $operation) {
-            if (date('Y', strtotime($operation['start_date'])) != $year) {
-            	$year = date('Y', strtotime($operation['start_date']));
-              ?>
-              <tr>
-                <td colspan="4"><?=$year;?></td>
-              </tr>
-              <?php
-            }
             ?>
             <tr>
               <td><?=date('d.m. H:i', strtotime($operation['start_date']));?></td>
