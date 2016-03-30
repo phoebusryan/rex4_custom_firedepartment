@@ -17,7 +17,7 @@
 			return $statistics;
 		}
 		
-		public static function getOperations() {
+		public static function getOperations($year) {
 			global $REX;
 			
 			$alerts = self::getAlerts();
@@ -26,7 +26,7 @@
 			$operations = [];
 			
 			$sql = new sql();
-			$result = $sql->get_array('SELECT * FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` ORDER BY `start_date` DESC');
+			$result = $sql->get_array('SELECT * FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` WHERE DATE_FORMAT(`start_date`, "%Y") = '.intval($year).' ORDER BY `start_date` DESC');
 			foreach ($result as $row) {
 				//Start - explode units
 					$unitIDs = explode('|', trim($row['config_unit_ids'], '|'));
