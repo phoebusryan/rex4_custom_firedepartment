@@ -5,7 +5,7 @@
 	$REX['ADDON']['name'][$addonName] = 'Feuerwehr Einsätze'; //todo: Translate
 	$REX['ADDON']['perm'][$addonName] = 'rex_firedepartment[]';
 	$REX['PERM'][] = 'rex_firedepartment[]';
-	$REX['ADDON']['version'][$addonName] = '0.1';
+	$REX['ADDON']['version'][$addonName] = '1.0';
 	$REX['ADDON']['author'][$addonName] = 'Thomas Kaegi';
 	
 	//Start - custom classes & functions
