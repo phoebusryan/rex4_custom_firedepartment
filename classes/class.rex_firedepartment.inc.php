@@ -42,7 +42,7 @@
 					}
 				//End - explode vehicles
 				
-				$operations[] = array(
+				$operations[] = [
 					'alert' => $alerts[$row['config_alert_id']],
 					'units' => $unitIDs,
 					'vehicles' => $vehicleIDs,
@@ -51,8 +51,8 @@
 					'start_date' => $row['start_date'],
 					'end_date' => $row['end_date'],
 					'place' => $row['place'],
-					'images' => explode(',', $row['images']),
-				);
+					'images' => (($row['images'] != '') ? explode(',', $row['images']) : []),
+				];
 			}
 			unset($sql);
 			
