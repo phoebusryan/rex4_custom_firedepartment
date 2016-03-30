@@ -23,10 +23,10 @@
 			$alerts = self::getAlerts();
 			$units = self::getUnits();
 			$vehicles = self::getVehicles();
-			$operations = array();
+			$operations = [];
 			
 			$sql = new sql();
-			$result = $sql->get_array('SELECT * FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` ORDER BY `end_date` DESC');
+			$result = $sql->get_array('SELECT * FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` ORDER BY `start_date` DESC');
 			foreach ($result as $row) {
 				//Start - explode units
 					$unitIDs = explode('|', trim($row['config_unit_ids'], '|'));
