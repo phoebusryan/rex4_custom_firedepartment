@@ -1,32 +1,54 @@
 <?php
-	require($REX['INCLUDE_PATH'].'/addons/rex_firedepartment/classes/class.rex_firedepartment.inc.php');
-	
-	$operations = rex_firedepartment::getOperations();
-	
-	if (!empty($operations)) {
-		?>
-		<table>
-			<thead>
-				<tr>
-					<th>Alarmierung</th>
-					<th>Einsatzbeschreibung</th>
-					<th>Einsatzort</th>
-				</tr>
-			</head>
-			<tbody>
-				<?php
-					foreach ($operations as $operation) {
-						?>
-						<tr>
-							<td><?=date('d.m.Y H:i', strtotime($operation['start_date']));?></td>
-							<td><?=$operation['report_short'];?></td>
-							<td><?=$operation['place'];?></td>
-						</tr>
-						<?php
-					}
-				?>
-			</tbody>
-		</table>
-		<?php
-	}
+  require($REX['INCLUDE_PATH'].'/addons/rex_firedepartment/classes/class.rex_firedepartment.inc.php');
+  
+  $operations = rex_firedepartment::getOperations();
+  
+  if (!empty($operations)) {
+    ?>
+    <table width="480">
+      <thead>
+        <tr>
+          <th>Alarmierung</th>
+          <th>Einsatzbeschreibung</th>
+          <th>Einsatzort</th>
+          <th>Bild</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $year = '';
+          
+          foreach ($operations as $operation) {
+            if (date('Y', strtotime($operation['start_date'])) != $year) {
+            	$year = date('Y', strtotime($operation['start_date']));
+              ?>
+              <tr>
+                <td colspan="4"><?=$year;?></td>
+              </tr>
+              <?php
+            }
+            ?>
+            <tr>
+              <td><?=date('d.m. H:i', strtotime($operation['start_date']));?></td>
+              <td><?=$operation['report_short'];?></td>
+              <td><?=$operation['place'];?></td>
+              <?php
+                if (!empty($operation['images'])) {
+                  ?>
+                  <td><img src="http://feuerwehr-schortens.de/files/logo_presse.png" alt="" width="41" height="40"></td>
+                  <?php
+                } else {
+                  ?>
+                  &nbsp;
+                  <?php
+                }
+              ?>
+            </tr>
+            <?php
+          }
+        ?>
+      </tbody>
+    </table>
+    <?php
+  }
 ?>
