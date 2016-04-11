@@ -1,44 +1,51 @@
 <?php
   require($REX['INCLUDE_PATH'].'/addons/rex_firedepartment/classes/class.rex_firedepartment.inc.php');
   
-  $operations = rex_firedepartment::getOperations('2016');
+  $operationID = rex_request('oid', 'int');
   
-  if (!empty($operations)) {
-    ?>
-    <table width="480">
-      <thead>
-        <tr>
-          <th>Alarmierung</th>
-          <th>Einsatzbeschreibung</th>
-          <th>Einsatzort</th>
-          <th>Bild</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-          foreach ($operations as $operation) {
-            ?>
-            <tr>
-              <td><?=date('d.m. H:i', strtotime($operation['start_date']));?></td>
-              <td><?=$operation['report_short'];?></td>
-              <td><?=$operation['place'];?></td>
-              <?php
-                if (!empty($operation['images'])) {
-                  ?>
-                  <td><img src="http://feuerwehr-schortens.de/files/logo_presse.png" alt="" width="41" height="40"></td>
-                  <?php
-                } else {
-                  ?>
-                  &nbsp;
-                  <?php
-                }
+  if ($operationID != '') {
+    $operation = rex_firedepartment::getOperationByID($operationID);
+    echo '<pre>'.print_r($operation,true).'</pre>';
+  } else {
+    $operations = rex_firedepartment::getOperations('2016');
+    
+    if (!empty($operations)) {
+      ?>
+      <table width="480">
+        <thead>
+          <tr>
+            <th>Alarmierung</th>
+            <th>Einsatzbeschreibung</th>
+            <th>Einsatzort</th>
+            <th>Bild</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach ($operations as $operation) {
               ?>
-            </tr>
-            <?php
-          }
-        ?>
-      </tbody>
-    </table>
-    <?php
+              <tr>
+                <td><?=date('d.m. H:i', strtotime($operation['start_date']));?></td>
+                <td><a href="<?=rex_getUrl(REX_ARTICLE_ID, REX_CLANG_ID);?>&oid=<?=$operation['id'];?>"><?=$operation['report_short'];?></a></td>
+                <td><?=$operation['place'];?></td>
+                <?php
+                  if (!empty($operation['images'])) {
+                    ?>
+                    <td><img src="http://feuerwehr-schortens.de/files/logo_presse.png" alt="" width="41" height="40"></td>
+                    <?php
+                  } else {
+                    ?>
+                    &nbsp;
+                    <?php
+                  }
+                ?>
+              </tr>
+              <?php
+            }
+          ?>
+        </tbody>
+      </table>
+      <?php
+    }
   }
 ?>
