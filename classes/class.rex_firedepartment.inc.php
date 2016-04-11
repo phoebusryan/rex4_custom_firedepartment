@@ -78,7 +78,7 @@
 			$operations = [];
 			
 			$sql = new sql();
-			$result = $sql->get_array('SELECT * FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` WHERE DATE_FORMAT(`start_date`, "%Y") = '.intval($year).' ORDER BY `start_date` DESC');
+			$result = $sql->get_array('SELECT * FROM `'.$REX['TABLE_PREFIX'].'firedepartment_operation` WHERE DATE_FORMAT(`start_date`, "%Y") = '.intval($year).' ORDER BY `start_date` ASC');
 			foreach ($result as $row) {
 				$unitIDs = [];
 				
@@ -103,6 +103,7 @@
 				//End - explode vehicles
 				
 				$operations[] = [
+					'id' => $row['id'],
 					'alert' => $alerts[$row['config_alert_id']],
 					'units' => $unitIDs,
 					'vehicles' => $vehicleIDs,
@@ -122,7 +123,7 @@
 		private static function getAlerts() {
 			global $REX;
 			
-			$alerts = array();
+			$alerts = [];
 			
 			$sql = new sql();
 			$result = $sql->get_array('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_alert`');
@@ -137,7 +138,7 @@
 		private static function getUnits() {
 			global $REX;
 			
-			$units = array();
+			$units = [];
 			
 			$sql = new sql();
 			$result = $sql->get_array('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_unit`');
@@ -152,7 +153,7 @@
 		private static function getVehicles() {
 			global $REX;
 			
-			$vehicles = array();
+			$vehicles = [];
 			
 			$sql = new sql();
 			$result = $sql->get_array('SELECT `id`, `name` FROM `'.$REX['TABLE_PREFIX'].'firedepartment_config_vehicle`');
